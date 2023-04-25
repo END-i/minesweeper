@@ -42,6 +42,11 @@ function App() {
     const rowIdx = randomCoordinate(BOARD_SIZE)
     const cellIdx = randomCoordinate(BOARD_SIZE)
 
+    if (newMatrix[rowIdx][cellIdx]?.isBomb) {
+      generateHoles(newMatrix)
+      return
+    }
+
     newMatrix[rowIdx][cellIdx] = {
       value: 'BOOM',
       isBomb: true,
